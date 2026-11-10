@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="%LANG%">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>%TITLE%</title>
+    <meta name="description" content="%DESCRIPTION%" />
+    <meta name="author" content="%NAME%" />
+    <meta name="theme-color" content="%BG%" />
+    <script>
+      // Apply a saved light theme before first paint to avoid a dark flash.
+      try {
+        if (localStorage.getItem(%THEME_KEY%) === "light") document.documentElement.dataset.theme = "light";
+      } catch (e) {}
+    </script>
+    %CANONICAL%
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="%TITLE%" />
+    <meta property="og:description" content="%DESCRIPTION%" />
+    %OG_IMAGE%
+    <meta name="twitter:title" content="%TITLE%" />
+    <meta name="twitter:description" content="%DESCRIPTION%" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/app.css" />
+    %JSONLD%
+    %ANALYTICS%
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 32px; font-family: system-ui, sans-serif; color: #f2efeb; background: #090909">
+        <h1>%NAME%</h1>
+        <p>%DESCRIPTION%</p>
+        <p><a style="color: #e32b3c" href="mailto:%EMAIL%">%EMAIL%</a></p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    <script defer src="assets/app.js"></script>
+    %DEV%
+  </body>
+</html>
